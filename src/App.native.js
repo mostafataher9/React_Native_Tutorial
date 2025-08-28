@@ -29,7 +29,7 @@ export default function App() {
         style={{ width: 200, height: 300 }}
       />
       <TouchableOpacity onPress={() => Alert.alert('Photo pressed!')} style={{ marginTop: 12 }}>
-        <Image source={require('../assets/luxury-holiday-home.jpg')} style={{ width: 200, height: 120 }} />
+  <Image source={require('../assets/SeatRoom.jpg')} style={{ width: 200, height: 120 }} />
       </TouchableOpacity>
       <Button title="Click me" onPress={() => Alert.alert('Info', 'Button pressed')} />
       <StatusBar style="auto" />
@@ -60,15 +60,28 @@ flex: 1 take all the entire available space
 here 3 views all take equal space so they distributed as 1/3 of screen each one
 justifyContent align the items in the main axis(primary axis) depending on the flexDirection
 justifyContent can be 'center', 'flex-start', 'flex-end', 'space-between' space only between items and equal , 'space-around' same as space-between but different space at edges, 'space-evenly'
-alignItems align the items in the secondary axis it  can be "stretch", "center", "baseline", "flex-start", "flex-end"
+alignItems align the items for each line  in the secondary axis it  can be "stretch", "center", "baseline", "flex-start", "flex-end"
+
+baseline means that all have the bottom the same (base) where each one must have different heights
+stretch beneficial if you want all items to have
+
 alignSelf can take same value as alignItems but it is applied to the individual item
 alignContent: 'center', flexWrap: 'wrap' alignContent align all the content on secondary axis while align item align each line
 flexWrap used bcz for many view color box we add the other views will shrunk so we use flexWrap to avoid shrunk but the new views will be in new lines
 no meaning of aligncontent if no wrapping exists
+
+flexBasis is the size of item in the primary axis so if horizontal line is primary axis so flexbasis is width and if vertical line is primary axis so flexbasis is height
+flexGrow:1 is the ability for a flex item to grow if necessary so if their available space next to it he will it same as flex:1
+flexShrink: 1 is the ability for a flex item to shrink inorder to other to fit  if necessary same as flex:-1
+
+Positioning: absolute & relative 
+where all components by defult are relative positioned
+relative position so component can be positioned relative to its current position without affecting the layout around it
+while absolute position  change in position with respect to parent with affecting the layout and other comp
 <View style={{ backgroundColor: '#fff', flex: 1, flexDirection: 'row', justifyContent: 'center', alignItems: 'center', alignContent: 'center', flexWrap: 'wrap', width: 100, height:100}} />
     <View style={{ backgroundColor: 'lightgray',  width: 100, height:100}} />
     <View style={{ backgroundColor: 'lightyellow',  width: 100, height:100}} />
-    <View style={{ backgroundColor: 'lightblue',  width: 100, height:100}} />
+    <iew style={{ backgroundColor: 'lightblue',  width: 100, height:100}} />
 </View>
 */
 

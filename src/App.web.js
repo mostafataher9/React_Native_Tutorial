@@ -1,8 +1,12 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, SafeAreaView, Image, Pressable } from 'react-native';
-import { BrowserRouter, Routes, Route, Outlet } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Outlet, Navigate } from 'react-router-dom';
 import Home from './pages/Home';
 import NotFound from './pages/NotFound';
+import About from './pages/About';
+import Sales from './pages/Sales';
+import Login from './pages/Login';
+import Register from './pages/Register';
 
 function Layout() {
   const showAlert = (message) => {
@@ -14,7 +18,7 @@ function Layout() {
     <SafeAreaView style={styles.container}>
       <Text style={{ fontSize: 18, marginBottom: 12 }}>Welcome to the App (Web)!</Text>
       <Image source={{ uri: 'https://picsum.photos/200/300' }} style={{ width: 200, height: 300, marginBottom: 12 }} />
-      <Image source={require('../assets/luxury-holiday-home.jpg')} style={{ width: 200, height: 120, marginBottom: 16 }} />
+      {/*<Image source={require('../assets/SeatRoom.jpg')} style={{ width: 200, height: 120, marginBottom: 16 }} /> */}
       <Pressable style={styles.webButton} onPress={() => showAlert('Pressable pressed')}>
         <Text style={styles.webButtonText}>Pressable</Text>
       </Pressable>
@@ -29,7 +33,13 @@ export default function App() {
     <BrowserRouter>
       <Routes>
         <Route element={<Layout />}>
-          <Route index element={<Home />} />
+          {/* redirect root (index) to /home */}
+          <Route index element={<Navigate to="/home" replace />} />
+          <Route path="home" element={<Home />} />
+          <Route path="about" element={<About />} />
+          <Route path="sales" element={<Sales />} />
+          <Route path="login" element={<Login />} />
+          <Route path="register" element={<Register />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
